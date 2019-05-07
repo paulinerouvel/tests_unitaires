@@ -1,32 +1,53 @@
 package Users;
 
-import jdk.vm.ci.meta.Local;
 
 import java.time.LocalDate;
-import java.util.Date;
+
 
 public class User {
 
-    public String nom;
-    public String prenom;
-    public Integer id;
-    public LocalDate dateNaissance;
+    private String nom;
+    private String prenom;
+    private Integer id;
+    private LocalDate dateNaissance;
 
 
    public User(String nom, String prenom, Integer id, LocalDate date) {
-
         this.nom = nom;
         this.prenom = prenom;
         this.id = id;
         this.dateNaissance = date;
-
     }
-    public boolean isValid() {
-        if(!nom.isBlank() || !prenom.isBlank() || LocalDate.now().getYear() - dateNaissance.getYear() <= 18){
-            return false;
-        }
-        else {
-            return true;
-        }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDate getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(LocalDate dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 }
