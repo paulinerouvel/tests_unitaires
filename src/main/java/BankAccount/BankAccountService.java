@@ -1,8 +1,12 @@
 package BankAccount;
 
+
+
+
 public class BankAccountService {
 
-    protected CreditBankAccountData safeCredit (BankAccount bankAccount, int amount) throws Exception {
+
+    protected BankAccount safeCredit (BankAccount bankAccount, int amount) throws Exception {
         if (amount < 0) {
             throw new Exception("Bad bankAccountAmount : bad bankAccountAmount : parameter");
         }
@@ -11,10 +15,10 @@ public class BankAccountService {
         int newAmount = Math.min(initialAmount + amount, 1000);
         int addedAmount = amount + bankAccount.amount <= 1000 ? amount : newAmount - initialAmount;
 
-        bankAccount.amount = newAmount;
+        //bankAccount.amount = newAmount;
         //bankAccountRepository.save(bankAccount);
 
-        return new CreditBankAccountData(bankAccount, addedAmount);
+        return null /*new BankAccount(bankAccount)*/;
     }
 
 }
