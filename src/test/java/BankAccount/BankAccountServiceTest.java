@@ -38,9 +38,10 @@ public class BankAccountServiceTest {
 
         //case1
         BankAccountCredit bankAccountCreditTemoin = new BankAccountCredit(BA1 , 50);
-
+        double saveAmount =  BA1.getAmount();
         BankAccountCredit res = bankAccountService.credit(BA1, 50);
         Assert.assertEquals(res.getAmount(), bankAccountCreditTemoin.getAmount(), 0.0);
+        Assert.assertEquals(res.getBankAccount().getAmount(), saveAmount + 50, 0.0);
 
         //case2
         BankAccount BA2 = new BankAccount(2, new User("CHAMPAUD", "Alexandre", 2, birthDate1), 1000);
@@ -48,6 +49,7 @@ public class BankAccountServiceTest {
 
         BankAccountCredit res2 = bankAccountService.credit(BA2, 50);
         Assert.assertEquals(res2.getAmount(), bankAccountCreditTemoin2.getAmount(), 0.0);
+        Assert.assertEquals(res2.getBankAccount().getAmount(), bankAccountCreditTemoin2.getBankAccount().getAmount(), 0.0);
 
 
 
